@@ -1,0 +1,19 @@
+SELECT * FROM customers
+SELECT DISTINCT country FROM customers
+SELECT * FROM customers WHERE customer_id LIKE 'BL%' - found this on sql website "LIKE"
+SELECT * FROM orders LIMIT 100
+SELECT * FROM customers WHERE postal_code = '1010' OR postal_code = '3012' OR postal_code = '12209' OR postal_code = '05023' 
+SELECT * FROM orders WHERE ship_region IS NOT NULL 
+SELECT * FROM customers ORDER BY country, city 
+INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone, fax) VALUES ('HELLO', 'Hello Kitty', 'Anu Reddy', 'Owner', 'Grand Park, 3249', 'Detroit', 'Region', '56564', 'country',  '(555)555-5555', '(555)555-5565');
+UPDATE orders SET ship_region = 'EuroZone' WHERE ship_country = 'France';
+DELETE FROM order_details WHERE quantity = 1
+SELECT AVG(quantity) FROM order_details
+SELECT MAX(quantity) FROM order_details
+SELECT MIN(quantity) FROM order_details 
+SELECT AVG(quantity) FROM order_details GROUP BY order_id
+SELECT MAX(quantity) FROM order_details GROUP BY order_id
+SELECT MIN(quantity) FROM order_details GROUP BY order_id
+SELECT customer_id FROM orders WHERE order_id = '10290'
+SELECT orders.customer_id, products.product_id
+FROM orders LEFT JOIN order_details ON orders.order_id = order_details.order_idLEFT JOIN products ON order_details.product_id = products.product_id
